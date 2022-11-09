@@ -36,6 +36,5 @@ public class generarXML {
         } catch (JAXBException e) {
             e.printStackTrace();
         }
-
     }
 }
