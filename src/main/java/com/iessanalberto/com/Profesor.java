@@ -8,7 +8,7 @@ import jakarta.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
 
 @XmlRootElement(name="profesor")
-@XmlType(propOrder={"centro", "rol", "nombre", "contrasenia", "puntuacion", "familiaProfesional", "contacto", "proyecto"})
+@XmlType(propOrder={"centro", "rol", "nombre", "contrasenia", "puntuacion", "familiaProfesional", "contacto", "proyectos"})
 
 public class Profesor {
 
@@ -29,6 +29,7 @@ public class Profesor {
 		this.puntuacion = puntuacion;
 		this.proyectos = proyectos;
 	}
+
 	@XmlElement(name="centro")
 	public String getCentro() {
 		return centro;
@@ -87,11 +88,11 @@ public class Profesor {
 	}
 	
 	@XmlElementWrapper(name="proyectos")
-	@XmlElement(name="proyecto")
-	public ArrayList<Proyecto> getProyecto() {
+	@XmlElement(name="proyectos")
+	public ArrayList<Proyecto> getProyectos() {
 		return proyectos;
 	}
-	public void setProyecto(ArrayList<Proyecto> proyectos) {
+	public void setProyectos(ArrayList<Proyecto> proyectos) {
 		this.proyectos = proyectos;
 	}
 }
