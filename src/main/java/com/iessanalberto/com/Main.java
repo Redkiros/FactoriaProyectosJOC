@@ -15,25 +15,31 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) throws JAXBException {
 
-        JAXBContext jaxbContext = JAXBContext.newInstance(listaProyectos.class, Usuario.class);
+        JAXBContext jaxbContext = JAXBContext.newInstance(listaProyectos.class, Usuario.class, Centros.class);
 
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
 
         listaProyectos listaProyectos;
         Usuario listaUsuarios;
+        Centros listacentros;
         listaProyectos = (com.iessanalberto.com.listaProyectos) unmarshaller.unmarshal(new File("src/main/resources/proyectos.xml"));
         listaUsuarios = (com.iessanalberto.com.Usuario) unmarshaller.unmarshal(new File("src/main/resources/usuarios.xml"));
+        listacentros = (com.iessanalberto.com.Centros) unmarshaller.unmarshal(new File("src/main/resources/centros.xml"));
 
         Path path = Path.of("target/Proyecto.json");
         Path path2 = Path.of("target/Usuario.json");
+        Path path3 = Path.of("target/Centros.json");
+
         GsonBuilder gsonBuilder = new GsonBuilder();
         Gson gson = gsonBuilder.setPrettyPrinting().create();
         String textoProyecto = gson.toJson(listaProyectos);
         String textoUsuario = gson.toJson(listaUsuarios);
+        String textoCentros = gson.toJson(listacentros);
 
         try {
-            Files.write(path, textoProyecto.getBytes());
-            Files.write(path2, textoUsuario.getBytes());
+           Files.write(path, textoProyecto.getBytes());
+           Files.write(path2, textoUsuario.getBytes());
+           Files.write(path3, textoCentros.getBytes());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
