@@ -22,10 +22,12 @@ public class Main {
         listaProyectos listaProyectos;
         Usuario listaUsuarios;
         Centros listacentros;
+        //Direecion del archivo xml
         listaProyectos = (com.iessanalberto.com.listaProyectos) unmarshaller.unmarshal(new File("src/main/resources/proyectos.xml"));
         listaUsuarios = (com.iessanalberto.com.Usuario) unmarshaller.unmarshal(new File("src/main/resources/usuarios.xml"));
         listacentros = (com.iessanalberto.com.Centros) unmarshaller.unmarshal(new File("src/main/resources/centros.xml"));
 
+        //Direccion de donde queremos crear el archivo json
         Path path = Path.of("target/Proyecto.json");
         Path path2 = Path.of("target/Usuario.json");
         Path path3 = Path.of("target/Centros.json");
@@ -36,10 +38,11 @@ public class Main {
         String textoUsuario = gson.toJson(listaUsuarios);
         String textoCentros = gson.toJson(listacentros);
 
+        //Creamos el archivo json
         try {
-           Files.write(path, textoProyecto.getBytes());
-           Files.write(path2, textoUsuario.getBytes());
-           Files.write(path3, textoCentros.getBytes());
+            Files.write(path, textoProyecto.getBytes());
+            Files.write(path2, textoUsuario.getBytes());
+            Files.write(path3, textoCentros.getBytes());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
