@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<centro>
+	<nombre>a</nombre>
+	<proyectos>
+		<proyecto></proyecto>
+	</proyectos>
+	<web>a</web>
+	<contacto>1</contacto>
+	<profesores>
+		<profesor></profesor>
+	</profesores>
+	<familia_Profesional>a</familia_Profesional>
+	<alumnos>
+		<alumno></alumno>
+	</alumnos>
+</centro>
